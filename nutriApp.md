@@ -1,6 +1,7 @@
 # Documentación de aplicación
 ## 1. Objetivo
-
+Crear una aplicacion sobre nutricion utilizando APIs, Flask, MySQL...
+ 
 ## 2. Integrantes
 
 ### Integrante 1
