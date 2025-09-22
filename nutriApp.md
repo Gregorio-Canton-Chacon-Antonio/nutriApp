@@ -13,9 +13,9 @@
  ![20250922_081536 (1)](https://github.com/user-attachments/assets/65e0086f-b532-49c2-826e-40c4782e621a)
 
  ### Integrante 2
-- **Nombre Completo:** Gregorio Canton Chacon Antonio
+- **Nombre Completo:** Herrera Trejo Victor Daniel
 - **Edad:** 17
-- **Correo electrónico:** 23308060610080@cetis61.edu.mx
+- **Correo electrónico:** 23308060610149@cetis61.edu.mx
 - **Especialidad:** Programación
 - **Institución:** CETis 61
 
