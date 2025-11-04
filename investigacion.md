@@ -75,4 +75,86 @@ Debilidades: menor enfoque en comunidad o interacción social.
 
 
 ![CALL](https://github.com/user-attachments/assets/2bc036e4-52b4-4b2a-8295-57f4c5630f7c)
+Tabla Comparativa de Aplicaciones Nutricionales 
+ 
 
+
+
+
+# Diseño y Resultados de Encuesta
+
+## Diseño 
+La encuesta tiene como objetivo conocer las necesidades, hábitos y preferencias de posibles usuarios para el desarrollo de una aplicación web nutrimental usando Flask y la API de Nutritionix. 
+Se aplicó una encuesta hecha en Google Forms, ya que es fácil de entender y fácil de usar, dirigida a personas mayores de 18 años. Con 15 preguntas. 
+El estudio es de tipo exploratorio y descriptivo, con preguntas mixtas entre cerradas y abiertas para obtener buenas respuestas y opiniones. 
+ 
+Las preguntas buscan identificar edad, género, hábitos y familiaridad tecnológica para definir el público objetivo y el nivel de complejidad del diseño. 
+Permiten conocer las fortalezas y debilidades de otras apps de nutrición, ayudando a evitar errores comunes y mejorar la experiencia del usuario. 
+Identifican las herramientas y datos más valorados por los usuarios lo que orienta el desarrollo en Flask. 
+Recogen preferencias visuales, nivel de importancia de la facilidad de uso, dispositivo principal y motivaciones, lo que guía el diseño responsivo y atractivo de la interfaz. 
+ 
+## Resultados 
+
+
+![RES](https://github.com/user-attachments/assets/a9c6d237-64ef-4823-b274-6929c38f680d)
+
+Como se puede observar, el rango de edades era un poco alto, no había muchos adultos jóvenes a comparación de adultos mayores que hayan respondido la encuesta, pero por su parte, no hubo ningún adulto viejo de mas de 60 años que haya respondido la encuesta, dando, así como resultado, una encuesta realizada mayoritariamente por gente grande, lo cual esta bien, ellos se podría decir que son el público objetivo, ya que por lo general ellos no están acostumbrados a usar ciertas aplicaciones web para su salud, ni para comer bien. 
+
+![FFFF](https://github.com/user-attachments/assets/7980c30a-4677-4b2e-a878-334b924ce2ce)
+
+El género que más contesto la encuesta fueron mujeres adultas, y el que menos fueron géneros distintos al de masculino y femenino, lo cual es interesante, por que por la parte de las mujeres, tal vez haya mas curiosidad o ganas de cuidar su alimentación, las mujeres se fijan mucho en eso lo cual no esta mal, se puede ver que no importa la edad lo harán, y por parte de los hombres, supongo son más escépticos, y más teniendo en cuenta los rangos de edad, hombres de esas edades son mas reacios a utilizar o aprender a usar cosas nuevas, como la tecnología o en este caso, aplicaciones web. 
+
+![GGGGG](https://github.com/user-attachments/assets/b102dd3f-4e8f-4279-a7ec-b08b152c91fd)
+
+
+Pocos adultos utilizaban aplicaciones nutrimentales en su día a día, lo cual podría probar mi punto sobre la edad en los adultos, no están acostumbrados a utilizar mucho aplicaciones web o la tecnología en general. Pero por un lado un poco bueno, al menos es mayor la cantidad que tan siquiera utilizan una app nutrimental, aunque sea ocasionalmente, aunque aun así en términos generales, los adultos no son de utilizar este tipo de apps. 
+ 
+
+![CCDCD](https://github.com/user-attachments/assets/e0e6421c-5b51-4261-8e15-06fe4152f69c)
+
+Los adultos, pese a no utilizar tanto apps nutricionales, si las usan o llegaran a usar, se fijan mas de un lado general, bajar de peso, comer mas saludable, controlar enfermedades que, para su rango de edad, es normal y bueno. Y también cabe aclarar, que a su edad no es muy importante para ellos subir de peso o masa muscular y eso es obvio, su edad no se los permite o por la misma edad no les genera atención hacerlo. 
+
+![GHUUGGU](https://github.com/user-attachments/assets/4ece9f0d-035a-4f7c-9826-2a28b9e761d0)
+
+De nuevo gracias a el rango de edad, se puede saber fácilmente que los adultos no están muy familiarizados con el uso de aplicaciones ya sea web, o móviles. Muy pocos de verdad saben usar bien la tecnología. 
+ 
+
+![DFFVDVFVFVF](https://github.com/user-attachments/assets/2428b03e-4a5e-41db-b893-e37a0b94b9e2)
+
+
+Aunque para este punto ya parezcamos pericos y muy probablemente nos seguiremos pareciendo a lo largo de la investigación, el rango de edad nos muestra lo que ya sabemos, adultos no tan familiarizados con el uso de aplicaciones web, y menos aplicaciones de este tipo de índole, índole que no es tan atractiva para ellos. 
+
+![JJJJJJJJ](https://github.com/user-attachments/assets/2752e6cc-c38f-40ad-885c-dedb7d3e0274)
+
+Un poco vacío y algo obvio que iba a pasar por encuestar a adultos caso igual con l;a siguiente pregunta, no muchas respuestas pero se esperaba a decir verdad. Poca gente usa apps de esta índole, y poca gente te dará su opinión sincera o va a querer responder y participar, y menos gente mayor pero de lo poco que se puede extraer de aquí, es que a los adultos les gusta el dinamismo, y la información que se aprende al utilizar estas apps. 
+
+![ÑÑÑÑÑ](https://github.com/user-attachments/assets/d118a3ad-672b-4782-b0e1-71a45382b0b1)
+
+No hay punto medio aquí, o no tuviste problemas o si, para la poca gente que respondió de diferente manera, los problemas fueron algo complementarios, poca info y no encontrar algunos productos, lo cual es poco pero interesante, demuestra que muchas aplicaciones nutrimentales tal vez no sean tan complejas o buenas. 
+
+![KOLOO](https://github.com/user-attachments/assets/50462ef1-bae8-4ef5-a092-377c2b27663d)
+
+A los adultos como ya habíamos dicho, prefieren irse a lo básico, lo más hablado, lo más aprendido y que mas se tiene en la mente de las personas, recomendaciones de comida, planes de alimentación y la que no tiene pierde, contador de calorías. 
+
+![JJUJUJUJ](https://github.com/user-attachments/assets/495db456-bc59-41c2-a553-89e6b4371b3d)
+
+Un poco sorprendido que a los adultos les interese más cualidades no tan buscadas en la comida por cierta gente de ya mayor edad, en vez de seguir yendo por el camino de las calorías. 
+
+![NNNNNNNNNNNNNNNN](https://github.com/user-attachments/assets/c7448db1-5831-4d78-a0f6-baf28bd413a9)
+
+Bueno, es bueno saber que a los adultos les gustaría recibir recomendaciones o recordatorios de una aplicación nutrimental, tal ves no las utilicen, pero si lo hacen lo harán bien, constante y con ganas. 
+ 
+![BNVC](https://github.com/user-attachments/assets/418d61b7-a49c-457a-82f4-2e267df4acea)
+
+Los adultos prefieren un estilo minimalista, un estilo más simple y claro, o profesional y formal, y se veía venir, un diseño de ese tipo es mucho más fácil de entender para ellos que uno más colorido y visual, un estilo de ese tipo seria mas recomendable en una app mas general, contando a menores de edad también. 
+ 
+![HUHHHHHHHH](https://github.com/user-attachments/assets/841d3de3-9371-4fed-ace0-f980853cc74d)
+
+Del 1 al 5, el 5 fue la respuesta mas elegida, y es siempre lo que se pretende en especial con adultos mayores que definitivamente no son lo mismo que adultos jóvenes o treintañeros, ellos como quiera se les hará más fácil entender una aplicación, tal vez les costara al inicio pero la entenderán mucho más rápido que adultos de mayor edad, por eso es indispensable crear una app fácil de usar y sin rodeos.  
+
+![LOOOOOOOOOOOOOO](https://github.com/user-attachments/assets/2a2f0a23-3810-48d3-af10-4855b77a6f81)
+
+Una aplicación web que utilice BootStrap y sea actual obviamente debe ser responsiva y debe de ser amigable con todos los dispositivos, y no solo con computadoras. Y era claro que esta iba a ser la respuesta mas elegida por lejos, los adultos mayores y no tan mayores no utilizan tanto una computadora, menos una computadora para ver una aplicación nutricional, para ellos les es mas sencillo simplemente usar su celular no están acostumbrados a utilizar mucho computadoras. 
+
+
+![GGGGGGGGGGGGGGGGGG](https://github.com/user-attachments/assets/8b1dcca8-01ee-4031-a852-39c75150567a)
