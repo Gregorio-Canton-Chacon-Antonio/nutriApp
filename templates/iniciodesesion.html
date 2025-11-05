@@ -3,34 +3,44 @@
 {% block title %}Inicio de Sesion{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center text-primary">Inicia sesion en tu cuenta de NutriApp 🥬</h1>
-</div>
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm" style="width: 400px;">
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm" style="width: 700px;">
         <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
             <form action="{{ url_for('iniciodesesion') }}" method="POST">
-                <h4 class="text-center">Iniciar Sesión</h4>
+                <h2 class="text-black text-center">Inicia sesión en tu cuenta de NutriApp 🍌</h2>
                 <p class="text-center">Accede a tu cuenta</p>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+                <small class="text-center text-muted">
+                    <p>Mantén tu información segura y no compartas tus datos de acceso.</p>
+                </small>
+
+                <div class="container d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-warning" type="submit">Iniciar Sesión</button>
                 </div>
 
                 <div class="text-center mt-3">
                     <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
                 </div>
 
-                <div class="text-center">
-                    <a href="{{ url_for('formulario') }}" class="btn btn-success">Crear cuenta nueva</a>
+                <div class="container text-center">
+                    <a href="{{ url_for('registro') }}">¿No tienes una cuenta?</a>
                 </div>
             </form>
         </div>

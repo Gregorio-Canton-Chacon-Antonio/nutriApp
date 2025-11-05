@@ -22,7 +22,7 @@ usuarios = {
     'gregorio@cetis61.com': 'mi_password'
 }
 
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template("index.html")
 
@@ -42,7 +42,7 @@ def iniciodesesion():
     
     return render_template('iniciodesesion.html')
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/registro", methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
         nombre = request.form.get("nombre")
