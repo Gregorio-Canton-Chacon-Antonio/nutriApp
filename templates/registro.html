@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Registarse{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm" style="width: 600px;">
+        <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form id="registrationform" method="post" action="{{ url_for('registro') }}">
+                <h2 class="text-black text-center">Crea una cuenta en NutriApp 🍌</h2>
+                <p class="text-center">Es gratis y facil</p>
+
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="form-select" name="day" required>
+                                <option value="">Día</option>
+                                {% for day in range(1, 32) %}
+                                <option value="{{ day }}">{{ day }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" name="month" required>
+                                <option value="">Mes</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" name="year" required>
+                                <option value="">Año</option>
+                                {% for year in range(2010, 1959, -1) %}
+                                <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Género</label>
+                    <div class="border rounded p-2">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="mujer" required>
+                            <label class="form-check-label">Mujer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="hombre" required>
+                            <label class="form-check-label">Hombre</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="personalizado" required>
+                            <label class="form-check-label">Personalizado</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electronico" required>
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="confirmAcontraseña" name="confirmAcontraseña" placeholder="Confirma tu contraseña" required>
+                </div>
+
+                <small class="text-center text-muted">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus exercitationem neque culpa accusantiu</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi consectetur nostrum molestiae fugiat itaque, magni minima et odio cum to.</p>
+                </small>
+
+                <div class="container d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-warning" type="submit">Registrarte</button>
+                </div>
+
+                <div class="container text-center">
+                    <a href="{{ url_for('iniciodesesion') }}">¿Ya tienes una cuenta?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
