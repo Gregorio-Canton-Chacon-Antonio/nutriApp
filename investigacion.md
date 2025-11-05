@@ -158,3 +158,20 @@ Una aplicación web que utilice BootStrap y sea actual obviamente debe ser respo
 
 
 ![GGGGGGGGGGGGGGGGGG](https://github.com/user-attachments/assets/8b1dcca8-01ee-4031-a852-39c75150567a)
+![gatoto](https://github.com/user-attachments/assets/6da17b99-f0d2-47d3-bcfe-8127bce25553)
+![juuuuuuuuuuuuuu](https://github.com/user-attachments/assets/26b0ca00-20a0-4f6a-86b3-74915f08a68a)
+![ggggggggggggggggggggggg](https://github.com/user-attachments/assets/04f4e26f-dc8e-4054-9939-d43c3d09e527)
+
+La ultima pregunta de respuesta abierta, un gran popurrí de respuestas, en donde se ven muchas opiniones y pensamientos de los adultos, hay mucho que decir aquí. Comenzando con que la respuesta general es que se quiere cuidar la salud y el peso, y obviamente el comer sano, pero mas dentro de ello, vemos otras respuestas mas interesantes, como alguien que quiere “recompensas” en general, unos pocos les motivaban la idea de aprender recetas saludables lo cual es bueno, ya que va de la mano con cuidar la salud, a otro le motivaba la idea de informarse de todo este mundo de la nutrición. Y una interesante, era de alguien que dijo que le gustaría aprender para así enseñarle a mas gente sobre lo que aprendió y así impulsar a mas gente a nutrirse bien y tener en cuenta nuestra salud más. 
+ 
+En general, respuestas predecibles, pero muy importantes para el desarrollo de una aplicación web, todo se debe tener en cuenta y mas las respuestas un poco mas diferentes a las habituales. 
+
+## Hallazgos principales 
+
+Tal vez quedo un poco claro al analizar las respuestas de las encuestas, pero generalmente hablando, los usuarios buscan tres cosas importantes en una aplicación nutricional, cuidar su salud, bajar de peso y comer saludable y esto se ve rápidamente en las respuestas. 
+ 
+Aunque eso sea lo más rápido de identificar, hay más cosas, como que los usuarios buscan una aplicación fácil de usar, sin complicaciones innecesarias y que sea fácil de entender. Y esto es importante, porque después de las necesidades de los usuarios, lo que quieren ver los usuarios es en donde uno se enfoca mas ya que, así podemos ofrecer una aplicación que no sea difícil de entender, por lo tanto, será un éxito  
+ 
+Por lo tanto, igualmente es indispensable crear un diseño sencillo, minimalista y formal, porque, aunque tal vez se sacrifique la originalidad e identidad, no importa tanto ya que buscamos que los usuarios se sientan cómodos utilizando nuestra aplicación, lo cual será una combinación bastante buena si creamos nuestra aplicación de manera que sea fácil de entender. Dando así como resultado una aplicación que será amigable con los usuarios, en especial con los adultos mayores, los cuales fueron los que fueron mas presentes en nuestras encuestas. 
+ 
+
