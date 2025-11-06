@@ -35,7 +35,8 @@ A continuación se presenta un análisis individual de tres aplicaciones nutrici
  
 **MyFitnessPal**
 
- ![PALFITTA](https://github.com/user-attachments/assets/544940d1-b35d-4e47-90b8-4c08706e92de)
+![frfrfr](https://github.com/user-attachments/assets/887d110e-0474-4db2-934c-e23f1ca97fae)
+
  
 Es una de las apps más populares para el conteo de calorías y seguimiento nutricional. Está dirigida a usuarios que desean controlar su peso, ingesta calórica y actividad física. 
 Disponible en iOS, Android y Web. 
@@ -44,11 +45,12 @@ Funciones: escáner de códigos de barras, seguimiento de macros, integración c
 Fortalezas: base de datos muy amplia e integraciones múltiples. 
 Debilidades: la mayoría de funciones avanzadas requieren suscripción Premium. 
 
-![GAMA](https://github.com/user-attachments/assets/32e4dce0-6b31-4e37-898d-527f0a7ad6ab)
+
+![lolol](https://github.com/user-attachments/assets/0a8c1b05-be00-4c9c-b430-3881818c079a)
 
 **FatSecret**
 
-![FAT](https://github.com/user-attachments/assets/fedbdd80-41f4-4302-9402-647c3ac448ca)
+![pppppppppppppp](https://github.com/user-attachments/assets/2c28f99a-7223-490a-967b-8c8d2c9ada55)
 
 App enfocada en el conteo de calorías con un fuerte enfoque en la accesibilidad y comunidad. 
 Disponible en iOS, Android y Web. 
@@ -58,13 +60,13 @@ Fortalezas: muchas funciones gratuitas y acceso a API.
 Debilidades: algunas bases de datos varían por región y las funciones  
 Premium son limitadas. 
 
+![edsds](https://github.com/user-attachments/assets/3e3c8387-5d2f-4e55-a07c-9b83c59da5b1)
 
-![FATS](https://github.com/user-attachments/assets/419cfdf5-74b7-46e7-b847-e8135eb25e8d)
 
 **Nutritionix**
 
+![plplp](https://github.com/user-attachments/assets/d82e7c7b-6d5f-438e-8f80-f700aeca1d88)
 
-![NUTRITI](https://github.com/user-attachments/assets/b798ec6b-c2ed-4e46-afc4-21947f614753)
 
 App y plataforma con enfoque en precisión de datos nutricionales. También ofrece soluciones empresariales (B2B). 
 Disponible en iOS, Android y Web. 
@@ -75,7 +77,19 @@ Debilidades: menor enfoque en comunidad o interacción social.
 
 
 ![CALL](https://github.com/user-attachments/assets/2bc036e4-52b4-4b2a-8295-57f4c5630f7c)
-Tabla Comparativa de Aplicaciones Nutricionales 
+
+# Tabla Comparativa de Aplicaciones Nutricionales
+
+| Características                   | MyFitnessPal                                      | FatSecret                                            | Nutritioix                          |
+|-------------------------------------|--------------------------------------------------|-----------------------------------------------------|-------------------------------------|
+| **Plataformas**                     | iOS / Android / Web                             | iOS / Android / Web                                | iOS / Android / Web                 |
+| **Modelo de Freemium**              | Premium y Premium (Track Pro / B2B Premium)     | Freemium con Premium funciones                      | / negocio opcional                  |
+| **Precio Premium**                  | $19.99/mes o $79.99/año                         | Variable según funciones Premium                    | $9/mes o $29/año                     |
+| **Base de datos**                   | Muy amplia (comunidad activa)                    | Amplia, datos de varios países                      | Verificados y precisos (empresarial) |
+| **Funciones Escanear**              | Escáner, Diario de Logging, macros, comunidad    | Rápido, principales funciones API                    | API                                 |
+| **Integraciones**                   | Wearables y apps fitness                         | API para desarrolladores                             | Portal profesional y API            |
+| **Comunidad**                        | Fuerte (foros y comunidad activa profesional)    | Enfocada en lo social y colaborativa                 | -                                   |
+
  
 
 
@@ -158,3 +172,40 @@ Una aplicación web que utilice BootStrap y sea actual obviamente debe ser respo
 
 
 ![GGGGGGGGGGGGGGGGGG](https://github.com/user-attachments/assets/8b1dcca8-01ee-4031-a852-39c75150567a)
+![gatoto](https://github.com/user-attachments/assets/6da17b99-f0d2-47d3-bcfe-8127bce25553)
+![juuuuuuuuuuuuuu](https://github.com/user-attachments/assets/26b0ca00-20a0-4f6a-86b3-74915f08a68a)
+![ggggggggggggggggggggggg](https://github.com/user-attachments/assets/04f4e26f-dc8e-4054-9939-d43c3d09e527)
+
+La ultima pregunta de respuesta abierta, un gran popurrí de respuestas, en donde se ven muchas opiniones y pensamientos de los adultos, hay mucho que decir aquí. Comenzando con que la respuesta general es que se quiere cuidar la salud y el peso, y obviamente el comer sano, pero mas dentro de ello, vemos otras respuestas mas interesantes, como alguien que quiere “recompensas” en general, unos pocos les motivaban la idea de aprender recetas saludables lo cual es bueno, ya que va de la mano con cuidar la salud, a otro le motivaba la idea de informarse de todo este mundo de la nutrición. Y una interesante, era de alguien que dijo que le gustaría aprender para así enseñarle a mas gente sobre lo que aprendió y así impulsar a mas gente a nutrirse bien y tener en cuenta nuestra salud más. 
+ 
+En general, respuestas predecibles, pero muy importantes para el desarrollo de una aplicación web, todo se debe tener en cuenta y mas las respuestas un poco mas diferentes a las habituales. 
+
+## Hallazgos principales 
+
+Tal vez quedo un poco claro al analizar las respuestas de las encuestas, pero generalmente hablando, los usuarios buscan tres cosas importantes en una aplicación nutricional, cuidar su salud, bajar de peso y comer saludable y esto se ve rápidamente en las respuestas. 
+ 
+Aunque eso sea lo más rápido de identificar, hay más cosas, como que los usuarios buscan una aplicación fácil de usar, sin complicaciones innecesarias y que sea fácil de entender. Y esto es importante, porque después de las necesidades de los usuarios, lo que quieren ver los usuarios es en donde uno se enfoca mas ya que, así podemos ofrecer una aplicación que no sea difícil de entender, por lo tanto, será un éxito  
+ 
+Por lo tanto, igualmente es indispensable crear un diseño sencillo, minimalista y formal, porque, aunque tal vez se sacrifique la originalidad e identidad, no importa tanto ya que buscamos que los usuarios se sientan cómodos utilizando nuestra aplicación, lo cual será una combinación bastante buena si creamos nuestra aplicación de manera que sea fácil de entender. Dando así como resultado una aplicación que será amigable con los usuarios, en especial con los adultos mayores, los cuales fueron los que fueron mas presentes en nuestras encuestas. 
+
+
+# Conclusiones y oportunidades 
+## Síntesis de aprendizajes 
+Con la información recabada en la encuesta y comparación de distintas aplicaciones de nutrición, se logró entender mejor qué buscan los usuarios en una aplicación de nutrición. 
+La mayoría quiere una app fácil de usar, con funciones básicas como contar calorías, registrar comidas y mostrar la información nutrimental de los alimentos. También se observó que muchas personas han usado apps similares, pero dejaron de usarlas por ser difíciles, confusas o poco prácticas. 
+Esto muestra que la simplicidad y rapidez son claves para que los usuarios sigan usando la aplicación. 
+ 
+## Oportunidades identificadas para desarrollo futuro 
+Agregar funciones personalizadas, como recomendaciones según el objetivo del usuario (bajar de peso, cuidar la salud, comer más sano). 
+Usar la API de Nutritionix para mostrar datos precisos y actualizados de los alimentos. 
+Diseñar una interfaz limpia y moderna, que funcione bien tanto en celular como en computadora, utilizando Flask y BootStrap. 
+Incluir un sistema de seguimiento de progreso o recordatorios que motiven al usuario a continuar 
+ 
+## Recomendaciones para la futura aplicación 
+Empezar con funciones simples y estables, para asegurar que la app funcione sin errores. 
+Dar prioridad a una interfaz sencilla, con botones y textos fáciles de entender, que no se complique mucho el código de Flask. No reburujar tanto el código. 
+Permitir que el usuario registre sus comidas y vea su resumen diario de nutrientes. 
+Usar un diseño minimalista, sin saturar la pantalla, formal y fácil de entender, darle un buen uso a BootStrap. 
+ 
+
+
