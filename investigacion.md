@@ -75,8 +75,7 @@ Funciones: base de datos verificada, logging rápido, portal para profesionales 
 Fortalezas: datos nutricionales verificados y herramientas para empresas. 
 Debilidades: menor enfoque en comunidad o interacción social. 
 
-
-![CALL](https://github.com/user-attachments/assets/2bc036e4-52b4-4b2a-8295-57f4c5630f7c)
+![tututuu](https://github.com/user-attachments/assets/c0f4ff3f-8ce0-4ad1-9a4f-ac6688a8339e)
 
 # Tabla Comparativa de Aplicaciones Nutricionales
 
