@@ -3,23 +3,19 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 app = Flask(__name__)
 
 
-USUARIOS_REGISTRADOS = {
-    'agregorio.chacon@gmail.com' : {
-        'contraseña': 'aGcC.6162008',
-        'nombre': 'Antonio',
-        'apellidos': 'Gregorio Canton Chacon',
-        'fechaDeNacimiento' : '25/01/2008'
-    }
-}
+
 
 app.config['SECRET_KEY'] = 'una_clave_secreta_yeaaa'
 
 emails_registrados = ["admin@test.com", "usuario@gmail.com"]
 
-usuarios = {
-    'admin@test.com': 'admin123',
-    'user@test.com': 'user123',
-    'gregorio@cetis61.com': 'mi_password'
+USUARIOS_REGISTRADOS = {
+    'agregorio.chacon@gmail.com': {
+    'contraseña': 'aGcC.6162008',
+    'nombre': 'Antonio',
+    'apellidos': 'Gregorio Canton Chacon',
+    'fechaDeNacimiento' : '25/01/2008'
+}
 }
 
 @app.route("/")
@@ -60,7 +56,7 @@ def registro():
             return render_template("registro.html")
         
         emails_registrados.append(email)
-        usuarios[email] = contraseña
+        USUARIOS_REGISTRADOS[email] = contraseña
         flash(f"Registro exitoso para {nombre} {apellidos}!")
         return redirect(url_for('index'))
     

@@ -6,8 +6,22 @@
 
 
 <div class="container">
-    <h1 class="text-center text-black">Bienvenido a tu cuenta de NutriApp 🍌</h1>
-    </div>
+    <h1 class="text-center">No tienes una cuenta en NUUB❗</h1>
+    <h4 class="text-center lead">Al crear una cuenta en NUUB, recibes varios beneficios:</h4>
 
+    <div class="row justify-content-center mt-4">
+        <div class="text-center">
+            <ul class="list-group">
+            <li class="list-group">Acceso a contenido exclusivo que los usuarios no registrados no pueden acceder.</li>
+            </ul>
+</div>
+    </div>
+</div>
+
+
+    <div class="d-flex justify-content-center mt-4">
+    <a href="{{ url_for('registro') }}" class="btn btn-warning btn-lg me-3">Registrarse</a>
+        <a href="{{ url_for('iniciodesesion') }}" class="btn btn-outline-warning btn-lg">Iniciar Sesión</a>
+    </div>
 
 {% endblock %}

@@ -1,0 +1,26 @@
+Ponerle nombre propio a nuestra app. 
+La pagina no debe pedir registro
+ensenar todo lo que se puede hacer en la app con algunas funciones restringidas, pero que una vez registrado, haya mas caracteristicas sin restriccion 
+
+MODULO 1
+Sera en una base de datos toda la info de Modulo 1
+
+PARA EL LUNES
+De perdido en un diccionario de datos
+
+
+
+MODULO 2
+Info de modulo 2 en una plantilla
+Buscar articulos
+
+Los recursos descargables son una rutina de ejerccio, 1 o 2 a lo mucho 
+
+
+
+MODULO 3
+
+
+
+
+25 DE NOVIEMBRE, PROYECTO TERMINADO
