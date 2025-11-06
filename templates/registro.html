@@ -3,8 +3,14 @@
 {% block title %}Registarse{% endblock %}
 
 {% block content %}
+<div class="container text-center">
+    <h1>Crea una cuenta en NUUB 🍌</h1>
+    <p>Es gratis y facil</p>
+</div>
+
+
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-sm" style="width: 600px;">
+    <div class="card shadow-sm border-danger" style="width: 380px;">
         <div class="card-body">
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -16,25 +22,29 @@
                 {% endif %}
             {% endwith %}
             <form id="registrationform" method="post" action="{{ url_for('registro') }}">
-                <h2 class="text-black text-center">Crea una cuenta en NUUB 🍌</h2>
-                <p class="text-center">Es gratis y facil</p>
+                
+                <div class="p-2 text-center bg-warning">
+                <h3>Datos personales</h3>
+                </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <div class="row">
                         <div class="col-6">
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
+                            <label class="form-label">Nombres</label>
+                            <input type="text" class="form-control border-danger" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
+                            <label class="form-label">Apellidos</label>
+                            <input type="text" class="form-control border-danger" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label">Fecha de nacimiento</label>
                     <div class="row">
                         <div class="col-4">
-                            <select class="form-select" name="day" required>
+                            <select class="form-select border-danger" name="day" required>
                                 <option value="">Día</option>
                                 {% for day in range(1, 31) %}
                                 <option value="{{ day }}">{{ day }}</option>
@@ -42,7 +52,7 @@
                             </select>
                         </div>
                         <div class="col-4">
-                            <select class="form-select" name="month" required>
+                            <select class="form-select border-danger" name="month" required>
                                 <option value="">Mes</option>
                                 <option value="1">Enero</option>
                                 <option value="2">Febrero</option>
@@ -59,7 +69,7 @@
                             </select>
                         </div>
                         <div class="col-4">
-                            <select class="form-select" name="year" required>
+                            <select class="form-select border-danger" name="year" required>
                                 <option value="">Año</option>
                                 {% for year in range(2010, 1959, -1) %}
                                 <option value="{{ year }}">{{ year }}</option>
@@ -69,9 +79,9 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label">Género</label>
-                    <div class="border rounded p-2">
+                    <div class="border rounded border-danger p-2">
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="gender" value="mujer" required>
                             <label class="form-check-label">Mujer</label>
@@ -87,28 +97,68 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electronico" required>
+                <div class="mb-4">
+                    <label class="form-label">Correo Electronico</label>
+                    <input type="email" class="form-control border-danger" id="email" name="email" placeholder="Correo electronico" required>
                 </div>
 
-                <div class="mb-3">
-                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
+                <div class="mb-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control border-danger" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
                 </div>
 
-                <div class="mb-3">
-                    <input type="password" class="form-control" id="confirmAcontraseña" name="confirmAcontraseña" placeholder="Confirma tu contraseña" required>
+                <div class="mb-4">
+                    <label class="form-label">Confirmar tu Contraseña</label>
+                    <input type="password" class="form-control border-danger" id="confirmAcontraseña" name="confirmAcontraseña" placeholder="Confirma tu contraseña" required>
                 </div>
 
-                <small class="text-center text-muted">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus exercitationem neque culpa accusantiu</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi consectetur nostrum molestiae fugiat itaque, magni minima et odio cum to.</p>
-                </small>
+                
+
+
+                <div class="p-2 text-center bg-warning">
+                <h3>Informacion personal</h3>
+                </div>
+
+                <label class="form-label">Sexo</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="sexo" name="sexo" placeholder="Cromosomas XX o XY?" required>
+                </div>
+
+                <label class="form-label">Peso</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                </div>
+   
+                <label class="form-label">Altura</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="altura" name="altura" placeholder="Altura en Centimetros" required>
+                </div>
+
+                <label class="form-label">Nivel de Actividad Fisica</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                </div>
+
+                <label class="form-label">Objetivos</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                </div>
+
+                <label class="form-label">Preferencias y Restricciones</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                </div>
+
+                <label class="form-label">Nivel de Experiencia</label>
+                <div class="mb-4">
+                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                </div>
 
                 <div class="container d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-warning" type="submit">Registrarte</button>
                 </div>
 
-                <div class="container text-center">
+                <div class="container text-center mt-3">
                     <a href="{{ url_for('iniciodesesion') }}">¿Ya tienes una cuenta?</a>
                 </div>
             </form>
