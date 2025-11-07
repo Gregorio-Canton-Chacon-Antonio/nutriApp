@@ -19,13 +19,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <input type="text" class="form-control fs-5 px-3 py-2 border-warning" id="alimento" name="alimento" placeholder="Alimento" required>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link fs-5 px-4 py-3" href="{{ url_for('index') }}">Inicio</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link fs-5 px-4 py-3" href="/buscar">Buscar Alimentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-5 px-4 py-3" href="{{ url_for('cuenta') }}"">Mi Cuenta</a>
+                        <a class="nav-link fs-5 px-4 py-3" href="{{ url_for('cuenta') }}">Mi Cuenta</a>
                     </li>
                 </ul>
             </div>
