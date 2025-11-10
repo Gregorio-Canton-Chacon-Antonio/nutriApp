@@ -1,22 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'mi_clave_super_secreta_123'
 
+# Lista de emails ya registrados
+emails = ["admin@test.com", "usuario@gmail.com"]
 
-
-
-app.config['SECRET_KEY'] = 'una_clave_secreta_yeaaa'
-
-emails_registrados = ["admin@test.com", "usuario@gmail.com"]
-
-USUARIOS_REGISTRADOS = {
+# Base de datos de usuarios (temporal)
+users = {
     'agregorio.chacon@gmail.com': {
-    'contraseña': 'aGcC.6162008',
-    'nombre': 'Antonio',
-    'apellidos': 'Gregorio Canton Chacon',
-    'fechaDeNacimiento' : '25/01/2008'
+        'password': 'aGcC.6162008',
+        'name': 'Antonio',
+        'lastname': 'Gregorio Canton Chacon',
+        'birthdate': '25/01/2008'
+    }
 }
-}
+
+current_user = None
 
 @app.route("/")
 def index():
@@ -25,46 +25,98 @@ def index():
 @app.route("/iniciodesesion", methods=['GET', 'POST'])
 def iniciodesesion():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        email = request.form['correo']
+        password = request.form['contraseña']
         
-        if email in usuarios and usuarios[email] == password:
-            session['logueado'] = True
-            session['email'] = email
-            flash('¡Inicio de sesión exitoso!')
-            return redirect(url_for('index'))
+        # Verificar credenciales
+        if email in users and users[email]['password'] == password:
+            global current_user
+            current_user = email
+            return redirect(url_for('cuenta'))
         else:
-            flash('Email o contraseña incorrectos')
+            flash('Credenciales incorrectas')
     
     return render_template('iniciodesesion.html')
+
 
 @app.route("/registro", methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
-        nombre = request.form.get("nombre")
-        apellidos = request.form.get("apellidos")
-        email = request.form.get("email")
-        contraseña = request.form.get("contraseña")
-        confirmaContraseña = request.form.get("confirmAcontraseña")
+        # Datos personales
+        name = request.form.get("nombre")
+        lastname = request.form.get("apellidos")
+        day = request.form.get("dia")
+        month = request.form.get("mes")
+        year = request.form.get("año")
+        gender = request.form.get("genero")
+        email = request.form.get("correo")
+        password = request.form.get("contraseña")
+        confirm_password = request.form.get("confirmaContraseña")
         
-        if email in emails_registrados:
-            flash("Este correo electrónico ya está registrado")
+        # Info física y preferencias
+        biological_sex = request.form.get("sexo")
+        weight = request.form.get("peso")
+        height = request.form.get("altura")
+        activity_level = request.form.get("nivel de act")
+        goal = request.form.get("objetivo")
+        cooking_exp = request.form.get("nivel de exp")
+        allergies = request.form.get("alergia")
+        intolerances = request.form.get("intolerancia")
+        disliked_foods = request.form.get("alimentos no gustan")
+        
+        # Validaciones básicas
+        if email in emails:
+            flash("Ya existe una cuenta con este email")
             return render_template("registro.html")
         
-        if contraseña != confirmaContraseña:
-            flash("Las contraseñas no coinciden")
+        if password != confirm_password:
+            flash("Las contraseñas no son iguales")
             return render_template("registro.html")
         
-        emails_registrados.append(email)
-        USUARIOS_REGISTRADOS[email] = contraseña
-        flash(f"Registro exitoso para {nombre} {apellidos}!")
-        return redirect(url_for('index'))
+        # Guardar nuevo usuario
+        emails.append(email)
+        users[email] = {
+            'name': name,
+            'lastname': lastname,
+            'birthdate': f"{day}/{month}/{year}",
+            'gender': gender,
+            'email': email,
+            'password': password,
+            'biological_sex': biological_sex,
+            'weight': weight,
+            'height': height,
+            'activity_level': activity_level,
+            'goal': goal,
+            'cooking_exp': cooking_exp,
+            'allergies': allergies,
+            'intolerances': intolerances,
+            'disliked_foods': disliked_foods
+        }
+        
+        global current_user
+        current_user = email
+        return redirect(url_for('cuenta'))
     
     return render_template("registro.html")
 
 @app.route("/cuenta")
 def cuenta():
-    return render_template("cuenta.html")
+    global current_user
+    user_data = None
+    user_name = None
+    
+    if current_user and current_user in users:
+        user_data = users[current_user]
+        user_name = user_data['name']
+    
+    return render_template("cuenta.html", usuario=user_data, nombre_usuario=user_name)
+
+@app.route("/cerrar_sesion")
+def cerrar_sesion():
+    global current_user
+    current_user = None
+    flash('Has cerrado sesión')
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True)
