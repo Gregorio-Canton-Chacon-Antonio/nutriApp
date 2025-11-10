@@ -23,7 +23,7 @@
             {% endwith %}
             <form id="registrationform" method="post" action="{{ url_for('registro') }}">
                 
-                <div class="text-danger text-center">
+                <div class="text-danger text-center mb-4">
                     <h2>Datos personales</h2>
                 </div>
 
@@ -117,43 +117,162 @@
                 
 
 
-                <div class="text-danger text-center">
+                <div class="text-danger text-center mb-4">
                     <h2>Informacion personal</h2>
                 </div>
 
-                <label class="form-label">Sexo</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="sexo" name="sexo" placeholder="Cromosomas XX o XY?" required>
+                    <label class="form-label">Sexo Biologico</label>
+                    <div class="border rounded border-danger p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="sexo" value="femenino" required>
+                                <label class="form-check-label">Femenino</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="sexo" value="masculino" required>
+                                <label class="form-check-label">Masculino</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <label class="form-label">Peso</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <input type="number" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
                 </div>
 
                 <label class="form-label">Altura</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="altura" name="altura" placeholder="Altura en Centimetros" required>
+                    <input type="number" class="form-control border-danger" id="altura" name="altura" placeholder="Altura en Metros" required>
                 </div>
 
-                <label class="form-label">Nivel de Actividad Fisica</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <label class="form-label">Nivel de Actividad Fisica</label>
+                    <div class="border rounded border-danger p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="sedentario" required>
+                                <label class="form-check-label">Sedentario</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="moderado" required>
+                                <label class="form-check-label">Moderado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="intenso" required>
+                                <label class="form-check-label">Intenso</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <label class="form-label">Objetivos</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <select class="form-select border-danger" name="objetivo" required>
+                                <option value="bajar_de_peso">Bajar de Peso</option>
+                                <option value="aumentar_masa_muscular">Aumentar Masa Muscular</option>
+                                <option value="mantener_peso">Mantener Peso</option>
+                                <option value="mejorar_digestion">Mejorar Digestion</option>
+                                <option value="controlar_una_condicion">Controlar una Condicion (Diabetes, Hipertension)</option>
+                            </select>
                 </div>
 
-                <label class="form-label">Preferencias y Restricciones</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <label class="form-label">Nivel de Experiencia en la Cocina (Cocinando)</label>
+                    <div class="border rounded border-danger p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="sedentario" required>
+                                <label class="form-check-label">No se cocinar</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="moderado" required>
+                                <label class="form-check-label">Principiante</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="intenso" required>
+                                <label class="form-check-label">Avanzado</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <label class="form-label">Nivel de Experiencia</label>
+
+                <div class="text-danger text-center mb-4">
+                    <h2>Preferencias y Restricciones</h2>
+                </div>
+
+                <label class="form-label">Alergias</label>
                 <div class="mb-4">
-                    <input type="text" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <select class="form-select border-danger" name="alergia" required>
+                                <option value="ninguna">Ninguna</option>
+                                <option value="nueces">Nueces (nuez, almendra, pistache, etc.)</option>
+                                <option value="mariscos">Mariscos</option>
+                                <option value="pescado">Pescado</option>
+                                <option value="huevo">Huevo</option>
+                                <option value="lacteos">Leche / lácteos</option>
+                                <option value="soya">Soya</option>
+                                <option value="trigo">Trigo / gluten</option>
+                                <option value="ajonjoli">Sésamo (ajonjolí)</option>
+                                <option value="otro">Otro (Aun no se como programar esto)</option>
+                            </select>
+                </div>
+
+                <label class="form-label">Intolerancias</label>
+                <div class="mb-4">
+                    <select class="form-select border-danger" name="intolerancia" required>
+                                <option value="ninguna">Ninguna</option>
+                                <option value="lactosa">Lactosa</option>
+                                <option value="gluten">Gluten</option>
+                                <option value="fructosa">Fructosa</option>
+                                <option value="histamina">Histamina</option>
+                                <option value="sulfitos">Sulfitos</option>
+                                <option value="cafeina">Cafeína</option>
+                                <option value="otro">Otro (Aun no se como programar esto)</option>
+                            </select>
+                </div>
+
+<label class="form-label">Dietas Especificas</label>
+<div class="mb-4">
+    <select class="form-select border-danger" name="objetivo" required>
+        <option value="ninguna">Ninguna</option>
+        <option value="vegetariana">Vegetariana</option>
+        <option value="vegana">Vegana</option>
+        <option value="pescetariana">Pescetariana (come pescado, no carne roja/pollo)</option>
+        <option value="keto">Keto (cetogénica)</option>
+        <option value="paleo">Paleo</option>
+        <option value="mediterranea">Mediterránea</option>
+        <option value="alta_proteina">Alta en proteínas</option>
+        <option value="baja_carbohidratos">Baja en carbohidratos</option>
+        <option value="sin_azucar">Sin azúcar añadida</option>
+        <option value="sin_gluten">Sin gluten</option>
+        <option value="halal">Halal</option>
+        <option value="kosher">Kosher</option>
+        <option value="otro">Otro (Aun no se como programar esto)</option>
+    </select>
+</div>
+
+                <label class="form-label">Alimentos que te desagradan</label>
+                <div class="mb-4">
+                    <select class="form-select border-danger" name="alimentos_nogustan" required>
+                        <option value="ninguno">Ninguno</option>
+                        <option value="cebolla">Cebolla</option>
+                        <option value="ajo">Ajo</option>
+                        <option value="cilantro">Cilantro</option>
+                        <option value="brocoli">Brócoli</option>
+                        <option value="coliflor">Coliflor</option>
+                        <option value="pescado">Pescado</option>
+                        <option value="mariscos">Mariscos</option>
+                        <option value="champiñones">Champiñones</option>
+                        <option value="picante">Comida picante</option>
+                        <option value="aguacate">Aguacate</option>
+                        <option value="tomate">Tomate</option>
+                        <option value="lacteos">Lácteos</option>
+                        <option value="grasosa">Comidas muy grasosas</option>
+                        <option value="dulce">Comidas muy dulces</option>
+                        <option value="otro">Otro (Aun no se como programar esto)</option>
+                    </select>
                 </div>
 
                 <div class="container d-grid gap-2 col-6 mx-auto">
