@@ -111,10 +111,6 @@ def cerrar_sesion():
     flash('Has cerrado sesión')
     return redirect(url_for('index'))
 
-@app.route("/acerca")
-def acerca():
-    return render_template("acerca.html")
-
 @app.route("/dietas")
 def dietas():
     return render_template("dietas.html")
