@@ -3,10 +3,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mi_clave_super_secreta_123'
 
-# Lista de emails ya registrados
 emails = ["admin@test.com", "usuario@gmail.com"]
 
-# Base de datos de usuarios (temporal)
 users = {
     'agregorio.chacon@gmail.com': {
         'password': 'aGcC.6162008',
@@ -22,13 +20,12 @@ current_user = None
 def index():
     return render_template("index.html")
 
-@app.route("/iniciodesesion", methods=['GET', 'POST'])
-def iniciodesesion():
+@app.route("/sesion", methods=['GET', 'POST'])
+def sesion():
     if request.method == 'POST':
         email = request.form['correo']
         password = request.form['contraseña']
         
-        # Verificar credenciales
         if email in users and users[email]['password'] == password:
             global current_user
             current_user = email
@@ -36,13 +33,12 @@ def iniciodesesion():
         else:
             flash('Credenciales incorrectas')
     
-    return render_template('iniciodesesion.html')
+    return render_template('sesion.html')
 
 
 @app.route("/registro", methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
-        # Datos personales
         name = request.form.get("nombre")
         lastname = request.form.get("apellidos")
         day = request.form.get("dia")
@@ -53,7 +49,6 @@ def registro():
         password = request.form.get("contraseña")
         confirm_password = request.form.get("confirmaContraseña")
         
-        # Info física y preferencias
         biological_sex = request.form.get("sexo")
         weight = request.form.get("peso")
         height = request.form.get("altura")
@@ -64,7 +59,6 @@ def registro():
         intolerances = request.form.get("intolerancia")
         disliked_foods = request.form.get("alimentos no gustan")
         
-        # Validaciones básicas
         if email in emails:
             flash("Ya existe una cuenta con este email")
             return render_template("registro.html")
@@ -73,7 +67,6 @@ def registro():
             flash("Las contraseñas no son iguales")
             return render_template("registro.html")
         
-        # Guardar nuevo usuario
         emails.append(email)
         users[email] = {
             'name': name,
@@ -117,6 +110,18 @@ def cerrar_sesion():
     current_user = None
     flash('Has cerrado sesión')
     return redirect(url_for('index'))
+
+@app.route("/acerca")
+def acerca():
+    return render_template("acerca.html")
+
+@app.route("/dietas")
+def dietas():
+    return render_template("dietas.html")
+
+@app.route("/calculadoras")
+def calculadoras():
+    return render_template("calculadoras.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-100">
+<html lang="es-mx" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,39 +8,43 @@
 </head>
 <body class="bg-light h-100 d-flex flex-column">
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand" href="/"><strong>NUUB 🍌 (Nutri + Hub)</strong></a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-3">
-                        <input type="text" class="form-control" id="buscar" placeholder="Buscar..." style="width: 200px;">
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Dietas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('cuenta') }}">Cuenta</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg bg-danger text-white">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="{{ url_for('index') }}">NUUB (Nutrition + Hub)</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{ url_for('cuenta') }}">Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{ url_for('dietas') }}">Dietas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{ url_for('calculadoras') }}">Calculadoras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{ url_for('acerca') }}">Acerca de...</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar alimento..." aria-label="Search"/>
+        <button class="btn btn-warning" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
     <main class="container mt-4">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-danger text-white text-center p-3 mt-5">
-        <p>&copy; 2025 NUUB - Gregorio y Herrera - 5D</p>
+    <footer>
+    <div class="bg-danger text-white text-center py-3 mt-5">
+        &copy; NUUB 2025
+    </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
