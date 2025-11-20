@@ -1,9 +1,83 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple de Peso Corporal Ideal</title>
+</head>
+<body>
 
-{% block title %}Registarse{% endblock %}
+    <h1>Calculadora de Peso Corporal Ideal</h1>
+    
+    <form id="calc">
+        
+        <label for="tipo">Selecciona:</label><br>
+        <select id="tipo" required>
+            <option value="">-- selecciona --</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="nino">Niño/a</option>
+        </select>
+        <br><br>
 
-{% block content %}
+        <label for="altura">Altura (metros):</label><br>
+        <input type="number" id="alt" min="0.3" max="3" step="0.01" placeholder="1.69" required>
+        <br><br>
 
+        <label for="peso">Peso (kilogramos):</label><br>
+        <input type="number" id="pes" min="10" max="500" step="0.1" placeholder="60" required>
+        <br><br>
 
+        <button type="submit">obtener</button>
+    </form>
+    
+    <br>
+    
+    <div id="res">Aquí verás tu IMC y el rango de peso ideal.</div>
 
-{% endblock %}
+    <script>
+        document.getElementById('calc').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const tipo = document.getElementById('tipo').value;
+            const alturaM = parseFloat(document.getElementById('alt').value);
+            const pesoKg = parseFloat(document.getElementById('pes').value);
+            const resultadoDiv = document.getElementById('res');
+
+            if (isNaN(alturaM) || isNaN(pesoKg) || tipo === "") {
+                resultadoDiv.innerHTML = "Ingresa una selección y valores válidos.";
+                return;
+            }
+
+            // Cálculo y Categoría
+            const imc = pesoKg / (alturaM * alturaM);
+            const imcR = imc.toFixed(2);
+            let cat;
+            if (imc < 18.5) {
+                cat = "peso muy BAJO";
+            } else if (imc <= 24.9) {
+                cat = "Normal (Saludable)";
+            } else if (imc <= 29.9) {
+                cat = "Sobrepeso";
+            } else {
+                cat = "Obesidad";
+            }
+
+            // Rango Ideal (IMC 18.5 - 24.9)
+            const limInf = 18.5 * (alturaM * alturaM);
+            const limSup = 24.9 * (alturaM * alturaM);
+
+            resultadoDiv.innerHTML = `
+                <h2>Resultado para ${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</h2>
+                <hr>
+                <p>IMC actual: <strong>${imcR} kg/m²</strong></p>
+                <p>Categoría: <strong>${cat}</strong></p>
+                
+                <h3>Rango de Peso Ideal</h3>
+                <p>Peso saludable:</p>
+                <p>De <strong>${limInf.toFixed(1)} kg</strong> a <strong>${limSup.toFixed(1)} kg</strong>.</p>
+            `;
+        });
+    </script>
+
+</body>
+</html>
