@@ -119,5 +119,25 @@ def dietas():
 def calculadoras():
     return render_template("calculadoras.html")
 
+@app.route("/IMC")
+def calculadora_imc():
+    return render_template("calculadora_imc.html")
+
+@app.route("/TMB")
+def calculadora_tmb():
+    return render_template("calculadora_tmb.html")
+
+@app.route("/GCT")
+def calculadora_gct():
+    return render_template("calculadora_gct.html")
+
+@app.route("/Peso Corporal Ideal")
+def calculadora_pci():
+    return render_template("calculadora_pci.html")
+
+@app.route("/Macronutrientes")
+def calculadora_macros():
+    return render_template("calculadora_macros.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
