@@ -4,6 +4,41 @@
 
 {% block content %}
 
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="card mt-4 shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Calcula tu TMB</h3>
+                    <p class="card-text">Ingresa tu peso y altura para calcular tu Índice de Masa Corporal.</p>
+                    <form method="POST" action="{{ url_for('calculadora_tmb') }}">
+                        <div class="mb-3">
+                            <label for="peso" class="form-label">Peso (kg):</label>
+                            <input type="number" class="form-control" id="peso" name="peso" placeholder="Ingresa tu peso en kilogramos (Ejemplo: 100)" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="altura" class="form-label">Altura (cm):</label>
+                            <input type="number" class="form-control" id="altura" name="altura" placeholder="Ingresa tu altura en centimetros (Ejemplo: 174)" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edad" class="form-label">Edad (años):</label>
+                            <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingresa tu edad en años (Ejemplo: 17)" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sexo" class="form-label">Sexo biologico:</label>
+                            <select class="form-select" id="sexo" name="sexo" required>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                            </select>
+                        </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning">Calcular</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,7 +1,32 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mi_clave_super_secreta_123'
+API_KEY = "fkWcgGrSo0tzA5nBXI0AFFxKuXXdXAzMmtZ0Fz2I"
+USDA_URL = "https://api.nal.usda.gov/fdc/v1/foods/search"
+
+@app.route('/buscar', methods=['POST'])
+def buscar_alimento():
+    alimento = request.form['alimento']
+    
+    params = {
+        'api_key': API_KEY,
+        'query': alimento,
+        'pageSize': 10  
+    }
+    
+    try:
+        response = requests.get(USDA_URL, params=params)
+        response.raise_for_status()
+        data = response.json()
+        
+        alimentos = data.get('foods', [])
+        return render_template('alimento.html', alimentos=alimentos, busqueda=alimento)
+            
+    except Exception as e:
+        flash(f'Error al buscar alimento: {str(e)}')
+        return render_template('alimento.html', alimentos=[], busqueda=alimento)
 
 emails = ["admin@test.com", "usuario@gmail.com"]
 
@@ -119,23 +144,23 @@ def dietas():
 def calculadoras():
     return render_template("calculadoras.html")
 
-@app.route("/IMC")
+@app.route("/calculadora_imc", methods=['GET', 'POST'])
 def calculadora_imc():
     return render_template("calculadora_imc.html")
 
-@app.route("/TMB")
+@app.route("/calculadora_tmb", methods=['GET', 'POST'])
 def calculadora_tmb():
     return render_template("calculadora_tmb.html")
 
-@app.route("/GCT")
+@app.route("/calculadora_gct", methods=['GET', 'POST'])
 def calculadora_gct():
     return render_template("calculadora_gct.html")
 
-@app.route("/Peso Corporal Ideal")
+@app.route("/calculadora_pci", methods=['GET', 'POST'])
 def calculadora_pci():
     return render_template("calculadora_pci.html")
 
-@app.route("/Macronutrientes")
+@app.route("/calculadora_macros", methods=['GET', 'POST'])
 def calculadora_macros():
     return render_template("calculadora_macros.html")
 

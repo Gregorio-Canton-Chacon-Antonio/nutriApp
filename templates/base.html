@@ -20,25 +20,25 @@
           <a class="nav-link text-white" href="{{ url_for('cuenta') }}">Cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ url_for('dietas') }}">Dietas</a>
+          <a class="nav-link text-white disabled" href="{{ url_for('dietas') }}">Dietas</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Calculadoras
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{ url_for('calculadora_imc') }}">Indice de Masa Corporal (IMC)</a></li>
-            <li><a class="dropdown-item" href="#">Tasa Metabólica Basal (TMB)</a></li>
-            <li><a class="dropdown-item" href="#">Gasto Calórico Total (GCT)</a></li>
-            <li><a class="dropdown-item" href="#">Peso Corporal Ideal</a></li>
-            <li><a class="dropdown-item" href="#">Macronutrientes</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('calculadora_tmb') }}">Tasa Metabólica Basal (TMB)</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('calculadora_gct') }}">Gasto Calórico Total (GCT)</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('calculadora_pci') }}">Peso Corporal Ideal</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('calculadora_macros') }}">Macronutrientes</a></li>
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar alimento..." aria-label="Search"/>
-        <button class="btn btn-warning" type="submit">Buscar</button>
-      </form>
+    <form class="d-flex" role="search" action="/buscar" method="POST">
+      <input class="form-control me-2" type="search" name="alimento" placeholder="Buscar Alimento" aria-label="Search" required/>
+      <button class="btn btn-warning" type="submit">Buscar</button>
+    </form>
     </div>
   </div>
 </nav>

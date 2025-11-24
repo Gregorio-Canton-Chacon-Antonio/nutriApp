@@ -11,7 +11,7 @@
 
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-sm border-danger" style="width: 100%; max-width: 400px;">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
         <div class="card-body">
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -24,7 +24,7 @@
             {% endwith %}
             <form id="registrationform" method="post" action="{{ url_for('registro') }}">
                 
-                <div class="text-danger text-center mb-4">
+                <div class="text-center mb-4">
                     <h2>Datos personales</h2>
                 </div>
 
@@ -32,11 +32,11 @@
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                             <label class="form-label">Nombres</label>
-                            <input type="text" class="form-control border-danger" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
                         </div>
                         <div class="col-12 col-sm-6">
                             <label class="form-label">Apellidos</label>
-                            <input type="text" class="form-control border-danger" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     <label class="form-label">Fecha de nacimiento</label>
                     <div class="row">
                         <div class="col-4 col-sm-4">
-                            <select class="form-select border-danger" name="dia" required>
+                            <select class="form-select" name="dia" required>
                                 <option value="">Día</option>
                                 {% for day in range(1, 31) %}
                                 <option value="{{ day }}">{{ day }}</option>
@@ -53,7 +53,7 @@
                             </select>
                         </div>
                         <div class="col-4 col-sm-4">
-                            <select class="form-select border-danger" name="mes" required>
+                            <select class="form-select" name="mes" required>
                                 <option value="">Mes</option>
                                 <option value="1">Enero</option>
                                 <option value="2">Febrero</option>
@@ -70,7 +70,7 @@
                             </select>
                         </div>
                         <div class="col-4 col-sm-4">
-                            <select class="form-select border-danger" name="año" required>
+                            <select class="form-select" name="año" required>
                                 <option value="">Año</option>
                                 {% for year in range(2010, 1959, -1) %}
                                 <option value="{{ year }}">{{ year }}</option>
@@ -82,7 +82,7 @@
 
                 <div class="mb-4">
                     <label class="form-label">Género</label>
-                    <div class="border rounded border-danger p-2">
+                    <div class="border rounded p-2">
                         <div class="d-flex flex-column flex-sm-row gap-2">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="genero" value="mujer" required>
@@ -102,29 +102,29 @@
 
                 <div class="mb-4">
                     <label class="form-label">Correo Electronico</label>
-                    <input type="email" class="form-control border-danger" id="correo" name="correo" placeholder="Correo electronico" required>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electronico" required>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Contraseña</label>
-                    <input type="password" class="form-control border-danger" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Confirmar tu Contraseña</label>
-                    <input type="password" class="form-control border-danger" id="confirmaContraseña" name="confirmaContraseña" placeholder="Confirma tu contraseña" required>
+                    <input type="password" class="form-control" id="confirmaContraseña" name="confirmaContraseña" placeholder="Confirma tu contraseña" required>
                 </div>
 
                 
 
 
-                <div class="text-danger text-center mb-4">
+                <div class="text-center mb-4">
                     <h2>Informacion personal</h2>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Sexo Biologico</label>
-                    <div class="border rounded border-danger p-2">
+                    <div class="border rounded p-2">
                         <div class="d-flex flex-column flex-sm-row gap-2">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="sexo" value="femenino" required>
@@ -140,17 +140,17 @@
 
                 <label class="form-label">Peso</label>
                 <div class="mb-4">
-                    <input type="number" class="form-control border-danger" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
+                    <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso en Kilogramos" required>
                 </div>
 
                 <label class="form-label">Altura</label>
                 <div class="mb-4">
-                    <input type="number" step="0.01" class="form-control border-danger" id="altura" name="altura" placeholder="Altura en Metros" required>
+                    <input type="number" step="0.01" class="form-control" id="altura" name="altura" placeholder="Altura en Metros" required>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Nivel de Actividad Fisica</label>
-                    <div class="border rounded border-danger p-2">
+                    <div class="border rounded p-2">
                         <div class="d-flex flex-column flex-sm-row gap-2">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="nivel de act" value="sedentario" required>
@@ -170,7 +170,7 @@
 
                 <label class="form-label">Objetivos</label>
                 <div class="mb-4">
-                    <select class="form-select border-danger" name="objetivo" required>
+                    <select class="form-select" name="objetivo" required>
                                 <option value="bajar_de_peso">Bajar de Peso</option>
                                 <option value="aumentar_masa_muscular">Aumentar Masa Muscular</option>
                                 <option value="mantener_peso">Mantener Peso</option>
@@ -181,7 +181,7 @@
 
                 <div class="mb-4">
                     <label class="form-label">Nivel de Experiencia en la Cocina (Cocinando)</label>
-                    <div class="border rounded border-danger p-2">
+                    <div class="border rounded p-2">
                         <div class="d-flex flex-column flex-sm-row gap-2">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="nivel de exp" value="sedentario" required>
@@ -200,13 +200,13 @@
                 </div>
 
 
-                <div class="text-danger text-center mb-4">
+                <div class="text-center mb-4">
                     <h2>Preferencias y Restricciones</h2>
                 </div>
 
                 <label class="form-label">Alergias</label>
                 <div class="mb-4">
-                    <select class="form-select border-danger" name="alergia" required>
+                    <select class="form-select" name="alergia" required>
                                 <option value="ninguna">Ninguna</option>
                                 <option value="nueces">Nueces (nuez, almendra, pistache, etc.)</option>
                                 <option value="mariscos">Mariscos</option>
@@ -222,7 +222,7 @@
 
                 <label class="form-label">Intolerancias</label>
                 <div class="mb-4">
-                    <select class="form-select border-danger" name="intolerancia" required>
+                    <select class="form-select" name="intolerancia" required>
                                 <option value="ninguna">Ninguna</option>
                                 <option value="lactosa">Lactosa</option>
                                 <option value="gluten">Gluten</option>
@@ -236,7 +236,7 @@
 
 <label class="form-label">Dietas Especificas</label>
 <div class="mb-4">
-    <select class="form-select border-danger" name="objetivo" required>
+    <select class="form-select" name="objetivo" required>
         <option value="ninguna">Ninguna</option>
         <option value="vegetariana">Vegetariana</option>
         <option value="vegana">Vegana</option>
@@ -256,7 +256,7 @@
 
                 <label class="form-label">Alimentos que te desagradan</label>
                 <div class="mb-4">
-                    <select class="form-select border-danger" name="alimentos no gustan" required>
+                    <select class="form-select" name="alimentos no gustan" required>
                         <option value="ninguno">Ninguno</option>
                         <option value="cebolla">Cebolla</option>
                         <option value="ajo">Ajo</option>

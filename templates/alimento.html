@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados - {{ busqueda }}{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Resultados para: "{{ busqueda }}" (Limitado a 10, porque luego explota la pagina)</h2>
+    
+    {% if alimentos %}
+    {% for alimento in alimentos %}
+    <div class="card mb-3 text-black">
+        <div class="card-body shadow">
+            <h2 class="card-title">{{ alimento.description }}</h2>
+            <p class="card-text">
+                <strong>Marca:</strong> {{ alimento.brandName or 'N/A' }}<br>
+                <strong>Categoría:</strong> {{ alimento.foodCategory or 'N/A' }}
+            </p>
+            
+            {% if alimento.foodNutrients %}
+            <h3>Información Nutricional (por 100g):</h3>
+            <div>
+                {% for nutriente in alimento.foodNutrients[:5] %}
+                <p class="mb-1">
+                    <strong>{{ nutriente.nutrientName }}:</strong> {{ nutriente.value }} {{ nutriente.unitName }}
+                </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-warning mt-4">
+        <h4>No se encontraron resultados</h4>
+        <p>No se encontraron alimentos para "{{ busqueda }}". Intenta con otro término de búsqueda.</p>
+    </div>
+    {% endif %}
+    
+    <a href="{{ url_for('index') }}" class="btn btn-danger">Buscar otro alimento</a>
+</div>
+
+{% endblock %}

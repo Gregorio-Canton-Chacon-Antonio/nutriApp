@@ -21,6 +21,6 @@ Los recursos descargables son una rutina de ejerccio, 1 o 2 a lo mucho
 MODULO 3
 
 
-
+EN los resultados de calculadoras, que den muchas decimales, debe aparecer solo una decimal
 
 25 DE NOVIEMBRE, PROYECTO TERMINADO
