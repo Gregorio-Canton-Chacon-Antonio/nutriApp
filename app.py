@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
 import requests
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mi_clave_super_secreta_123'
 API_KEY = "fkWcgGrSo0tzA5nBXI0AFFxKuXXdXAzMmtZ0Fz2I"
 USDA_URL = "https://api.nal.usda.gov/fdc/v1/foods/search"
+
 
 @app.route('/buscar', methods=['POST'])
 def buscar_alimento():
@@ -28,6 +32,7 @@ def buscar_alimento():
         flash(f'Error al buscar alimento: {str(e)}')
         return render_template('alimento.html', alimentos=[], busqueda=alimento)
 
+
 emails = ["admin@test.com", "usuario@gmail.com"]
 
 users = {
@@ -41,9 +46,79 @@ users = {
 
 current_user = None
 
+
+# SQL
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'nutriapp'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+mysql = MySQL(app)
+
+def crear_tabla():
+    try:
+        cursor = mysql.connection.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS usuarios (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nombre VARCHAR(100), NOT NULL,
+                apellidos VARCHAR(100), NOT NULL,
+                fecha_nacimiento DATE, NOT NULL,
+                genero VARCHAR(10), NOT NULL,
+                correo VARCHAR(100), NOT NULL,
+                contraseña VARCHAR(100), NOT NULL,
+                sexo_biologico VARCHAR(10), NOT NULL,
+                peso FLOAT, NOT NULL,
+                altura FLOAT, NOT NULL,
+                nivel_actividad VARCHAR(50), NOT NULL,
+                objetivo VARCHAR(50), NOT NULL,
+                experiencia_cocina VARCHAR(50), NOT NULL,
+                alergias VARCHAR(255), NOT NULL,
+                intolerancias VARCHAR(255), NOT NULL,
+                alimentos_no_gustan VARCHAR(255), NOT NULL
+            )
+        ''')
+        mysql.connection.commit()
+    except Exception as e:
+        print(f'Error al crear la tabla: {str(e)}')
+
+
+def email_existe(correo):
+    try:
+        cursor = mysql.connection.cursor()
+        cursor.execute('SELECT id FROM usuarios WHERE correo = %s', (correo,))
+        return cursor.fetchone() is not None
+    except Exception as e:
+        print(f'Error al verificar el correo: {str(e)}')
+        return False
+    
+
+def registrar_usuario(nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan):
+    try:
+        cursor = mysql.connection.cursor()
+
+        # Hash de la contraseña
+        hashed_password = generate_password_hash(contraseña)
+
+        cursor.execute('''
+            INSERT INTO usuarios (nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ''', (nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan))
+        
+        mysql.connection.commit()
+        return True, "Usuario registrado exitosamente."
+    
+    except Exception as e:
+        print(f'Error al registrar el usuario: {str(e)}')
+        return False, "Error al registrar el usuario. Inténtalo de nuevo."
+
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    global current_user
+    usuario = users.get(current_user) if current_user else None
+    return render_template("index.html", usuario=usuario)
 
 @app.route("/sesion", methods=['GET', 'POST'])
 def sesion():

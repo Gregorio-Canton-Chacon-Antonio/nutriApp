@@ -24,3 +24,6 @@ MODULO 3
 EN los resultados de calculadoras, que den muchas decimales, debe aparecer solo una decimal
 
 25 DE NOVIEMBRE, PROYECTO TERMINADO
+
+
+pip install -r requirements.txt
