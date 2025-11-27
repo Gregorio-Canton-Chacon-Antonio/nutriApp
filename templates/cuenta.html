@@ -6,25 +6,24 @@
 
 {% if usuario %}
 <div class="container">
-    <h1 class="text-center">¡Hola {{ nombre_usuario }}! Bienvenido a NUUB 🍌</h1>
-    <h4 class="text-center lead">Aquí están tus datos:</h4>
+    <h1 class="text-center">¡Hola {{ nombre_usuario }}! Bienvenido a NUUB</h1>
+    <h4 class="text-center lead mb-4">Aquí están tus datos:</h4>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-12 col-md-8 col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-danger">Información Personal</h2>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+                    <h2 class="card-title">Información Personal</h2>
                     <p><strong>Nombre:</strong> {{ usuario.name }} {{ usuario.lastname }}</p>
                     <p><strong>Fecha de Nacimiento:</strong> {{ usuario.birthdate }}</p>
                     <p><strong>Género:</strong> {{ usuario.gender }}</p>
                     <p><strong>Sexo Biológico:</strong> {{ usuario.biological_sex }}</p>
                     
-                    <h2 class="card-title mt-4 text-danger">Información Física</h2>
+                    <h2 class="card-title mt-4">Información Física</h2>
                     <p><strong>Peso:</strong> {{ usuario.weight }} kg</p>
                     <p><strong>Altura:</strong> {{ usuario.height }} m</p>
                     <p><strong>Nivel de Actividad:</strong> {{ usuario.activity_level }}</p>
                     
-                    <h2 class="card-title mt-4 text-danger">Preferencias</h2>
+                    <h2 class="card-title mt-4">Preferencias</h2>
                     <p><strong>Objetivo:</strong> {{ usuario.goal }}</p>
                     <p><strong>Experiencia en Cocina:</strong> {{ usuario.cooking_exp }}</p>
                     <p><strong>Alergias:</strong> {{ usuario.allergies }}</p>
@@ -32,22 +31,29 @@
                     <p><strong>Alimentos que no gustan:</strong> {{ usuario.disliked_foods }}</p>
                 </div>
             </div>
-            
-            <div class="text-center mt-4">
-                <a href="{{ url_for('cerrar_sesion') }}" class="btn btn-danger">Cerrar Sesión</a>
-            </div>
         </div>
     </div>
-</div>
+
+    <div class="text-center mt-4">
+                <a href="{{ url_for('cerrar_sesion') }}" class="btn btn-warning">Cerrar Sesión</a>
+            </div>
+
 {% else %}
 <div class="container">
     <h1 class="text-center">No tienes una cuenta en NUUB❗</h1>
     <h4 class="text-center lead">Al crear una cuenta en NUUB, recibes varios beneficios:</h4>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-12 col-md-8 col-lg-6 text-center">
-            <ul class="list-group">
-                <li class="list-group-item">Acceso a contenido exclusivo que los usuarios no registrados no pueden acceder.</li>
+<div class="container d-flex justify-content-center align-items-center mt-4">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            <ul>
+                <li>Acceso a calculadoras mas complejas.</li>
+                <br>
+                <li>Creacion de dietas en base a tus gustos, preferencias y necesidades.</li>
+                <br>
+                <li>Ejercicios especializados en tus metas, necesidades y nivel de actividad fisica.</li>
+                <br>
+                <li>Avisos, consejos y recordatorios para ti.</li>
             </ul>
         </div>
     </div>

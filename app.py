@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from flask_mysqldb import MySQL
+
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 
@@ -47,71 +47,7 @@ users = {
 current_user = None
 
 
-# SQL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'nutriapp'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-mysql = MySQL(app)
-
-def crear_tabla():
-    try:
-        cursor = mysql.connection.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS usuarios (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                nombre VARCHAR(100), NOT NULL,
-                apellidos VARCHAR(100), NOT NULL,
-                fecha_nacimiento DATE, NOT NULL,
-                genero VARCHAR(10), NOT NULL,
-                correo VARCHAR(100), NOT NULL,
-                contraseña VARCHAR(100), NOT NULL,
-                sexo_biologico VARCHAR(10), NOT NULL,
-                peso FLOAT, NOT NULL,
-                altura FLOAT, NOT NULL,
-                nivel_actividad VARCHAR(50), NOT NULL,
-                objetivo VARCHAR(50), NOT NULL,
-                experiencia_cocina VARCHAR(50), NOT NULL,
-                alergias VARCHAR(255), NOT NULL,
-                intolerancias VARCHAR(255), NOT NULL,
-                alimentos_no_gustan VARCHAR(255), NOT NULL
-            )
-        ''')
-        mysql.connection.commit()
-    except Exception as e:
-        print(f'Error al crear la tabla: {str(e)}')
-
-
-def email_existe(correo):
-    try:
-        cursor = mysql.connection.cursor()
-        cursor.execute('SELECT id FROM usuarios WHERE correo = %s', (correo,))
-        return cursor.fetchone() is not None
-    except Exception as e:
-        print(f'Error al verificar el correo: {str(e)}')
-        return False
-    
-
-def registrar_usuario(nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan):
-    try:
-        cursor = mysql.connection.cursor()
-
-        # Hash de la contraseña
-        hashed_password = generate_password_hash(contraseña)
-
-        cursor.execute('''
-            INSERT INTO usuarios (nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        ''', (nombre, apellidos, fecha_nacimiento, genero, correo, contraseña, sexo_biologico, peso, altura, nivel_actividad, objetivo, experiencia_cocina, alergias, intolerancias, alimentos_no_gustan))
-        
-        mysql.connection.commit()
-        return True, "Usuario registrado exitosamente."
-    
-    except Exception as e:
-        print(f'Error al registrar el usuario: {str(e)}')
-        return False, "Error al registrar el usuario. Inténtalo de nuevo."
 
 
 @app.route("/")
