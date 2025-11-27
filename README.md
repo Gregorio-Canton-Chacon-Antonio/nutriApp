@@ -23,3 +23,4 @@ Crear una aplicacion sobre nutricion utilizando APIs, Flask, MySQL...
  ![IMG-20250922-WA0001 (1)](https://github.com/user-attachments/assets/3fd1b25d-e9eb-46da-abbf-5feb83e0bfdc)
 
 ## 3. Analisis de la base de datos
+
