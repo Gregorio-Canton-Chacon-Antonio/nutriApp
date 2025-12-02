@@ -10,7 +10,6 @@
             <div class="card mt-4 shadow">
                 <div class="card-body">
                     <h3 class="card-title text-center">Calcula tu IMC</h3>
-                    <p class="card-text">Ingresa tu peso y altura para calcular tu Índice de Masa Corporal.</p>
                     <form method="POST" action="{{ url_for('calculadora_imc') }}">
                         <div class="mb-3">
                             <label for="peso" class="form-label">Peso (kg):</label>
@@ -21,9 +20,15 @@
                             <input type="number" step="0.01" class="form-control" id="altura" name="altura" placeholder="Ingresa tu altura en metros (Ejemplo: 1.74)" required>
                         </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-warning">Calcular</button>
+                        <button type="submit" class="btn btn-warning mt-2">Calcular</button>
                     </div>
                     </form>
+                    
+                    {% if imc %}
+                    <div class="mt-4 alert alert-warning text-center">
+                        <h5>Tu Indice de Masa Corporal es de: <strong>{{ imc }}</strong></h5>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

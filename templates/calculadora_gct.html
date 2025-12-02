@@ -10,19 +10,30 @@
             <div class="card mt-4 shadow">
                 <div class="card-body">
                     <h3 class="card-title text-center">Calcula tu GCT</h3>
-                    <p class="card-text">Ingresa tu peso y altura para calcular tu Índice de Masa Corporal.</p>
-                    <form>
+                    <form method="POST" action="{{ url_for('calculadora_gct') }}">
                         <div class="mb-3">
-                            <label for="peso" class="form-label">Tasa Metabolica Basal:</label>
-                            <input type="number" class="form-control" id="tmb" placeholder="Ingresa tu tasa metabolica basal (Ejemplo: no c)">
+                            <label for="tmb" class="form-label">Tasa Metabólica Basal (TMB):</label>
+                            <input type="number" step="0.01" class="form-control" id="tmb" name="tmb" placeholder="Ingresa tu TMB (Ejemplo: 2107.5)" required>
                         </div>
                         <div class="mb-3">
-                            <label for="altura" class="form-label">Altura (m):</label>
-                            <input type="number" step="0.01" class="form-control" id="altura" placeholder="Ingresa tu altura en metros (Ejemplo: 1.74)">
+                            <label for="actividad" class="form-label">Nivel de Actividad:</label>
+                            <select class="form-select" id="actividad" name="actividad" required>
+                                <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+                                <option value="1.375">Ligeramente activo (ejercicio ligero 1-3 días/semana)</option>
+                                <option value="1.55">Moderadamente activo (ejercicio moderado 3-5 días/semana)</option>
+                                <option value="1.725">Muy activo (ejercicio intenso 6-7 días/semana)</option>
+                                <option value="1.9">Extremadamente activo (ejercicio muy intenso, trabajo físico)</option>
+                            </select>
                         </div>
                     <div class="text-center">
-                        <button class="btn btn-warning">Calcular</button>
+                        <button type="submit" class="btn btn-warning">Calcular</button>
                     </div>
+
+                    {% if gct %}
+                    <div class="mt-4 alert alert-warning text-center">
+                        <h5>Tu Gasto Calorico Total es de: <strong>{{ gct }}</strong> calorias al dia</h5>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

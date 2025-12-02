@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Registarse{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mb-4">
+    <h1>Unete a NUUB</h1>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form id="registrationform" method="post" action="{{ url_for('registro_personal') }}">
+
+                <div class="text-center mb-4">
+                    <h2>Informacion personal</h2>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Sexo Biologico</label>
+                    <div class="border rounded p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="sexo" value="femenino" required>
+                                <label class="form-check-label">Femenino</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="sexo" value="masculino" required>
+                                <label class="form-check-label">Masculino</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="form-label">Peso</label>
+                <div class="mb-4">
+                    <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso en Kilogramos (Ejemplo: 110)" required>
+                </div>
+
+                <label class="form-label">Altura</label>
+                <div class="mb-4">
+                    <input type="number" class="form-control" id="altura" name="altura" placeholder="Altura en Centimetros (Ejemplo: 174)" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Nivel de Actividad Fisica</label>
+                    <div class="border rounded p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="sedentario" required>
+                                <label class="form-check-label">Sedentario</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="moderado" required>
+                                <label class="form-check-label">Moderado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de act" value="intenso" required>
+                                <label class="form-check-label">Intenso</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="form-label">Objetivos</label>
+                <div class="mb-4">
+                    <select class="form-select" name="objetivo" required>
+                                <option value="bajar_de_peso">Bajar de Peso</option>
+                                <option value="aumentar_masa_muscular">Aumentar Masa Muscular</option>
+                                <option value="mantener_peso">Mantener Peso</option>
+                                <option value="mejorar_digestion">Mejorar Digestion</option>
+                                <option value="controlar_una_condicion">Controlar una Condicion (Diabetes, Hipertension)</option>
+                            </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Nivel de Experiencia en la Cocina (Cocinando)</label>
+                    <div class="border rounded p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="sedentario" required>
+                                <label class="form-check-label">No se cocinar</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="moderado" required>
+                                <label class="form-check-label">Principiante</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="nivel de exp" value="intenso" required>
+                                <label class="form-check-label">Avanzado</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-warning" type="submit" href="{{ url_for('registro_preferencias') }}">Registrar informacion personal</button>
+                </div>
+
+                <div class="container text-center mt-3">
+                    <a href="{{ url_for('sesion') }}">¿Ya tienes una cuenta?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

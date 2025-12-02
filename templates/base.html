@@ -8,11 +8,10 @@
 </head>
 <body class="bg-light h-100 d-flex flex-column">
     
-    <nav class="navbar navbar-expand-lg bg-danger text-white">
+    <nav class="navbar navbar-expand-lg bg-danger py-3" data-bs-theme="light">
   <div class="container-fluid">
-    <a class="navbar-brand text-white fw-bold" href="{{ url_for('index') }}">
-      <img src="static\img\logo.png" alt="Logo" width="35" height="30" class="d-inline-block align-text-top">
-      NUUB (Nutrition + Hub)
+    <a class="navbar-brand ms-3 me-3" href="{{ url_for('index') }}">
+      <img src="static\img\logo.png" alt="Logo" width="35" height="30">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,13 +19,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ url_for('cuenta') }}">Cuenta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white {% if not usuario %}disabled{% endif %}" href="{{ url_for('dietas') }}">Dietas</a>
+          <a class="nav-link text-light me-2" href="{{ url_for('cuenta') }}">Cuenta</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white {% if not usuario %}disabled{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-light me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Calculadoras
           </a>
           <ul class="dropdown-menu">
@@ -34,13 +30,22 @@
             <li><a class="dropdown-item" href="{{ url_for('calculadora_tmb') }}">Tasa Metabólica Basal (TMB)</a></li>
             <li><a class="dropdown-item" href="{{ url_for('calculadora_gct') }}">Gasto Calórico Total (GCT)</a></li>
             <li><a class="dropdown-item" href="{{ url_for('calculadora_pci') }}">Peso Corporal Ideal</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('calculadora_macros') }}">Macronutrientes</a></li>
+            <li><a class="dropdown-item {% if not usuario %}opacity-50 disabled{% endif %}" href="{{ url_for('calculadora_macros') }}">Macronutrientes</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light me-2" href="{{ url_for('dietas') }}">Información</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light me-2 {% if not usuario %}opacity-50 disabled{% endif %}" href="{{ url_for('dietas') }}">Dietas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{{ url_for('acerca_de') }}">Acerca de NUUB</a>
         </li>
       </ul>
     <form class="d-flex" role="search" action="/buscar" method="POST">
-      <input class="form-control me-2" type="search" name="alimento" placeholder="Buscar Alimento" aria-label="Search" required/>
-      <button class="btn btn-warning" type="submit">Buscar</button>
+      <input class="form-control me-3" type="search" name="alimento" placeholder="Buscar Alimento" aria-label="Search" {% if not usuario %}disabled{% endif %} required/>
+      <button class="btn btn-warning me-3" type="submit" {% if not usuario %}disabled{% endif %}>Buscar</button>
     </form>
     </div>
   </div>
@@ -51,7 +56,7 @@
     </main>
 
     <footer>
-    <div class="bg-danger text-white text-center py-3 mt-5">
+    <div class="bg-danger text-white text-center py-4 mt-5">
         &copy; NUUB 2025
     </div>
     </footer>

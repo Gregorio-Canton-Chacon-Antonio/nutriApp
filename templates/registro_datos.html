@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Registarse{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mb-4">
+    <h1>Unete a NUUB</h1>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form id="registrationform" method="post" action="{{ url_for('registro_datos') }}">
+                
+                <div class="text-center mb-4">
+                    <h2>Datos personales</h2>
+                </div>
+
+                <div class="mb-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
+                            <label class="form-label">Nombres</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="100" value="{{ request.form.get('nombre', '') }}" required>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <label class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="100" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <div class="row">
+                        <div class="col-4 col-sm-4">
+                            <select class="form-select" name="dia" required>
+                                <option value="">Día</option>
+                                {% for day in range(1, 31) %}
+                                <option value="{{ day }}">{{ day }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <select class="form-select" name="mes" required>
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="diciembre">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <select class="form-select" name="año" required>
+                                <option value="">Año</option>
+                                {% for year in range(2010, 1959, -1) %}
+                                <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Género</label>
+                    <div class="border rounded p-2">
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="genero" value="mujer" required>
+                                <label class="form-check-label">Mujer</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="genero" value="hombre" required>
+                                <label class="form-check-label">Hombre</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="genero" value="personalizado" required>
+                                <label class="form-check-label">Personalizado</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Correo Electronico</label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electronico" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Confirmar tu Contraseña</label>
+                    <input type="password" class="form-control" id="confirmaContraseña" name="confirmaContraseña" placeholder="Confirma tu contraseña" required>
+                </div>
+
+                <div class="container d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-warning" type="submit" href="{{ url_for('registro_personal') }}">Registrar datos personales</button>
+                </div>
+
+                <div class="container text-center mt-3">
+                    <a href="{{ url_for('sesion') }}">¿Ya tienes una cuenta?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -10,7 +10,6 @@
             <div class="card mt-4 shadow">
                 <div class="card-body">
                     <h3 class="card-title text-center">Calcula tu TMB</h3>
-                    <p class="card-text">Ingresa tu peso y altura para calcular tu Índice de Masa Corporal.</p>
                     <form method="POST" action="{{ url_for('calculadora_tmb') }}">
                         <div class="mb-3">
                             <label for="peso" class="form-label">Peso (kg):</label>
@@ -35,10 +34,26 @@
                         <button type="submit" class="btn btn-warning">Calcular</button>
                     </div>
                     </form>
+                    
+                    {% if tmb %}
+                    <div class="mt-4 alert alert-warning text-center">
+                        <h5>Tu Tasa Metabolica Basal es de: <strong>{{ tmb }}</strong></h5>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="container text-center mt-5">
+    <h2>¿Qué es la tasa metabólica basal (TMB)?</h2>
+    <p class="mb-5">La tasa metabólica basal (TMB) representa la cantidad mínima de energía que tu cuerpo necesita para realizar funciones vitales básicas, como respirar, regular la temperatura y digerir alimentos. Entender tu TMB es esencial para conocer tus necesidades calóricas y mejorar tu bienestar.</p>
+    <h2>¿Cómo se calcula la TMB?</h2>
+    <p class="mb-5">Aunque el método más preciso para medir la TMB es la calorimetría indirecta, este método no está ampliamente disponible. Por ello, se utilizan fórmulas que estiman la TMB de manera sencilla. La fórmula más precisa actualmente es la de Mifflin St Jeor, que tiene en cuenta variables como el peso, la altura, la edad y el sexo. Otra fórmula útil es la de Katch-McArdle, que incluye la masa libre de grasa en el cálculo.</p>
+    <p class="fw-bold">Fórmula de Mifflin St Jeor</p>
+    <p><strong>TMB Mujeres =</strong> 10 * peso (kg) + 6.25 * altura (cm) – 5 * edad (años) – 161</p>
+    <p><strong>TMB Hombres =</strong> 10 * peso (kg) + 6.25 * altura (cm) – 5 * edad (años) + 5</p>
 </div>
 
 {% endblock %}

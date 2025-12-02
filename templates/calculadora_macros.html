@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Registarse{% endblock %}
+{% block title %}Calculadora IMC - NUUB{% endblock %}
 
 {% block content %}
 
@@ -9,18 +9,33 @@
         <div class="col-12 col-md-6">
             <div class="card mt-4 shadow">
                 <div class="card-body">
-                    <h3 class="card-title text-center">Calcula tu IMC</h3>
-                    <p class="card-text">Ingresa tu peso y altura para calcular tu Índice de Masa Corporal.</p>
-                    <form>
+                    <h3 class="card-title text-center">Calcula tus Macronutrientes</h3>
+                    <form method="POST" action="{{ url_for('calculadora_macros') }}">
                         <div class="mb-3">
-                            <label for="peso" class="form-label">Peso (kg):</label>
-                            <input type="number" class="form-control" id="peso" placeholder="Ingresa tu peso en kilogramos (Ejemplo: 100)">
+                            <label for="calorias" class="form-label">Calorías totales diarias:</label>
+                            <input type="number" class="form-control" id="calorias" name="calorias" placeholder="Ingresa tus calorías diarias (Ejemplo: 2000)" required>
                         </div>
                         <div class="mb-3">
-                            <label for="altura" class="form-label">Altura (m):</label>
-                            <input type="number" step="0.01" class="form-control" id="altura" placeholder="Ingresa tu altura en metros (Ejemplo: 1.74)">
+                            <label for="objetivo" class="form-label">Objetivo:</label>
+                            <select class="form-select" id="objetivo" name="objetivo" required>
+                                <option value="mantener">Mantener peso</option>
+                                <option value="perder">Perder peso</option>
+                                <option value="ganar">Ganar masa muscular</option>
+                            </select>
                         </div>
-                    <button class="btn btn-warning">Calcular</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning mt-2">Calcular</button>
+                    </div>
+                    </form>
+                    
+                    {% if macros %}
+                    <div class="mt-4 alert alert-info">
+                        <h5>Resultado:</h5>
+                        <p><strong>Proteínas:</strong> {{ macros.proteinas }}g ({{ macros.calorias_proteinas }} cal)</p>
+                        <p><strong>Carbohidratos:</strong> {{ macros.carbohidratos }}g ({{ macros.calorias_carbohidratos }} cal)</p>
+                        <p><strong>Grasas:</strong> {{ macros.grasas }}g ({{ macros.calorias_grasas }} cal)</p>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

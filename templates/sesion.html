@@ -27,14 +27,14 @@
                     <h2>Datos personales</h2>
                 </div>
 
-                <label class="form-label">Tu Gmail</label>
                 <div class="mb-4">
-                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
+                    <label class="form-label">Correo Electronico</label>
+                    <input type="email" class="form-control" id="correo" name="contraseña" placeholder="Tu correo" required>
                 </div>
 
-                <label class="form-label">Tu contraseña</label>
                 <div class="mb-4">
-                    <input type="contraseña" class="form-control" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
                 </div>
 
                 <small class="text-center text-muted">
@@ -48,7 +48,7 @@
                 
 
                 <div class="text-center mt-3">
-                    <a href="{{ url_for('registro') }}">¿No tienes una cuenta?</a>
+                    <a href="{{ url_for('registro') }}">¿Olvidaste tu contraseña?</a>
                 </div>
             </form>
         </div>
